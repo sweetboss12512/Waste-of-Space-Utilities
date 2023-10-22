@@ -26,5 +26,5 @@ local soundObject = SpeakerHandler.CreateSound({
 soundObject:Play(12) -- Plays sound with a cooldown of 12 seconds where it can't be played
 soundObject:Stop() -- Stops sound from playing
 soundObject:Loop() -- Adds sound to the update sound loop
-soundObject.Destroy() -- Unloops and destroys the sound
+soundObject:Destroy() -- Unloops and destroys the sound
 ```
