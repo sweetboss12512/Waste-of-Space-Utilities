@@ -2,38 +2,26 @@
 
 This tries to simplify microcontrollers communication with wireless ports
 
-```lua
-local ScreenPlus = require(script.Parent)
-local Screen = ScreenPlus(GetPartFromPort(1, "Screen"))
+## `Communication.SendMessage(topicName: string, port: (port number or object), dataToSend: any): MessageResult`
+> - Requires disk on the provided port  
+> - Send a message that subscribed microcontrollers can read from
 
-Screen:ClearElements()
+___  
+## `Communication.SubscribeToTopic(topicName: string, port: (port number or object), callbackFunction): TopicSubscription`
+> Subscribes and runs the provided callback whenever a microcontroller sends the message (god im bad at writing this)
 
-local frame = Screen:CreateElement("Frame", {
-    Size = UDim2.fromScale(1, 1)
-})
+___
+# Objects
 
-Screen:CreateElement("TextLabel", {
-    Name = "thingy",
-    Size = UDim2.fromScale(1, 1),
-    Text = "thingy",
-    TextScaled = true
-})
-
-local someLabel = Screen:GetElement({ Name = "thingy" }) -- Get the text label thats named 'thingy'
-local clone = someLabel:Clone() -- Clones the screen element with it's properties (current stable doesn't have this I think?)
-
-clone.Parent = frame -- .Parent works
-
-for i = 1, 10 do
-    local label = Screen:CreateElement("Frame", {
-        Size = UDim2.fromScale(1, 1),
-        Text = math.random(1, 100000),
-        TextScaled = true
-    })
-    
-    frame:AddChild(label)
-end
-
-local frameChildren = Screen:GetElementMany({ Parent = frame })
-local allElements = Screen:GetElementMany() -- get every element on the screen
-```
+## `Communication.MessageResult`
+     .Results: (array/dict): Name of the topic the subscription is subscribed to  
+     :WaitForResult(index: any, timeoutSeconds: number) Waits the amount of seconds for the index to be added to the .Results table.
+___    
+## `Communication.TopicSubscription`
+        .TopicName: Name of the topic the subscription is subscribed to.
+        
+        :Unbind(): Unbinds the topic subscription from the callback.
+        
+        :SendReturnMessage(topicName: string, dataToSend: any)
+            Sends a message using the disk of the latest sender. Can allow messages to be sent along the network without the specific
+            microcontroller having a disk of it's own
