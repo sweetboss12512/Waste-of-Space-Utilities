@@ -23,7 +23,7 @@ local function MultiConnection(callbackTable: {AnyFunction}, callback: AnyFuncti
 end
 
 --[[
-    # Multi Event Handler (NOT FUNCTIONAL!)
+    # Multi Event Handler
     Simple class for allowing multiple connections to the same event
 
     Edited unknown time ago, last 11/10/2023
