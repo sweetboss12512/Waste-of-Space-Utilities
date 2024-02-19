@@ -26,7 +26,6 @@ end
     # Multi Event Handler
     Simple class for allowing multiple connections to the same event
 
-    Edited unknown time ago, last 11/10/2023
 	Currently in WOS stable, parts only allow a single event callback per event.
 	This solves that.
 
