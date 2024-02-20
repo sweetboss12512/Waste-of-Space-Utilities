@@ -1,6 +1,6 @@
 # Microcontroller Communication
 
-This tries to simplify microcontrollers communication with wireless ports
+This tries to simplify microcontrollers communication with wireless ports, but it can be used with just trigger wires
 
 ## `Communication.SendMessage(topicName: string, port: (port number or object), dataToSend: any): MessageResult`
 > - Requires disk on the provided port  
