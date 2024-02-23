@@ -1,6 +1,6 @@
 # SearchPorts
 
-A simple thing that searches port ids for the desired part. Nice for portability
+A simple thing that searches port ids for the desired part. Nice for portability?
 
 ```lua
 local Screen = SearchPorts("Screen", true) -- true to error if part isn't found
