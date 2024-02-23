@@ -26,7 +26,7 @@ end
     # Multi Event Handler
     Simple class for allowing multiple connections to the same event
 
-	Currently in WOS stable, parts only allow a single event callback per event.
+    Currently in WOS stable, parts only allow a single event callback per event.
 	This solves that.
 
     ## Example code
@@ -62,11 +62,13 @@ local function MultiConnectionHandler(part: PilotLuaPart)
                 local allArgs = {...}
     
                 for _, func in ipairs(callbackTable :: any) do
-                    local success, errormsg = pcall(task.spawn, func, table.unpack(allArgs))
+                    task.spawn(function()
+                        local success, errormsg = pcall(func, table.unpack(allArgs))
 
-                    if not success then
-                        print(`[MultiConnectionHandler]: Error in event callback '{eventName}' {errormsg}`)
-                    end
+                        if not success then
+                            print(`[MultiConnectionHandler]: Error in event callback '{eventName}' {errormsg}`)
+                        end
+                    end)
                 end
             end)
 
