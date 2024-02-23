@@ -1,6 +1,6 @@
 ## Speaker Handler
 
-This adds some useful things to speakers I think.
+Library that lets you do useful stuff with speakers I think
 
 ```lua
 local Speaker = GetPartFromPort(1, "Speaker")
