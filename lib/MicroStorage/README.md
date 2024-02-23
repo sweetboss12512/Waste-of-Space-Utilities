@@ -1,5 +1,5 @@
 # Micro Storage
-Library for using microcontrollers as data storage
+Thingy for using microcontrollers as data storage
 
 ## Example Code
 ```lua
