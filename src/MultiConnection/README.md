@@ -1,4 +1,7 @@
 # Multi Event Handler
+
+## NOTE: This class is unnecessary in unstable. Silly old code that uses this won't break, though.
+
 Simple class for allowing multiple connections to the same event
 
 Currently in WOS stable, parts only allow a single event callback per event.
